@@ -11,37 +11,49 @@ public class Stage : MonoBehaviour
     public Character character;
     public Vector2Int characterPoint;
     public Slime debugSlime;
-    public Slime debugSlime2;
-    public Slime debugSlime3;
-    public Wall debugWall;
     public Vector3 stageOriginPosition = new Vector3(-2.5f, -2.5f);
     public float gridScale = 1f;
+    public InitialStageData stageData;
 
     // Start is called before the first frame update
     void Start()
     {
         stageCells = new StageObject[stageSizeX,stageSizeY];
-        characterPoint = new Vector2Int(4, 4);
-        character.stage = this;
-        stageCells[2, 2] = debugSlime;
-        debugSlime.position = new Vector2Int(2, 2);
-        debugSlime.stage = this;
-        if(debugSlime2 != null)
+        if(stageData != null)
         {
-            stageCells[3, 3] = debugSlime2;
-            debugSlime2.position = new Vector2Int(3, 3);
-            debugSlime2.stage = this;
+            CreateStageObject();
         }
-        if(debugSlime3 != null)
+        else
         {
-            stageCells[1, 4] = debugSlime3;
-            debugSlime3.position = new Vector2Int(1, 4);
-            debugSlime3.stage = this;
+            characterPoint = ConvertToGrid(character.transform.position);
+            character.stage = this;
+            var debugSlimeGridPos = ConvertToGrid(debugSlime.transform.position);
+            stageCells[debugSlimeGridPos.x, debugSlimeGridPos.y] = debugSlime;
+            debugSlime.stage = this;
         }
-        if (debugWall != null)
+    }
+
+    void CreateStageObject()
+    {
+        foreach (var stageObjectData in stageData.stageObjectList)
         {
-            stageCells[0, 2] = debugWall;
+            var instance = Instantiate(stageObjectData.stageObject, ConvertToWorldPosition(stageObjectData.position), Quaternion.identity);
+            stageCells[stageObjectData.position.x, stageObjectData.position.y] = instance;
+            instance.stage = this;
+            if(instance is Slime)
+            {
+                ((Slime)instance).number = stageObjectData.initialSlimeNum;
+            }
+            else if(instance is Character)
+            {
+                characterPoint = stageObjectData.position;
+            }
         }
+    }
+    
+    public void PutSlime(Slime slime, int x, int y)
+    {
+        stageCells[x, y] = slime;
     }
 
     public void Attack(Vector2Int direction)
@@ -84,13 +96,12 @@ public class Stage : MonoBehaviour
                 if (canUnion)
                 {
                     // スライムが加算するときの処理
-                    targetSlime.UnionTo(stageOriginPosition + (Vector3)((Vector2)finishPosition * gridScale) + new Vector3(gridScale / 2, gridScale / 2, 0), (Slime)stageCells[finishPosition.x, finishPosition.y]);
+                    targetSlime.UnionTo(ConvertToWorldPosition(finishPosition), (Slime)stageCells[finishPosition.x, finishPosition.y]);
                     stageCells[attackPosition.x, attackPosition.y] = null;
                 }
                 else
                 {
-                    targetSlime.position = finishPosition;
-                    targetSlime.MoveTo(stageOriginPosition + (Vector3)((Vector2)finishPosition * gridScale) + new Vector3(gridScale / 2, gridScale / 2, 0));
+                    targetSlime.MoveTo(ConvertToWorldPosition(finishPosition));
                     stageCells[finishPosition.x, finishPosition.y] = targetSlime;
                     stageCells[attackPosition.x, attackPosition.y] = null;
                 }
@@ -100,7 +111,7 @@ public class Stage : MonoBehaviour
 
     public void Bomb(Slime bombSlime)
     {
-        var bombPos = bombSlime.position;
+        var bombPos = ConvertToGrid(bombSlime.transform.position);
 
         for(int y = -1; y <= 1; y++)
         {
@@ -119,6 +130,17 @@ public class Stage : MonoBehaviour
         }
     }
 
+    public Vector2Int GetRandomGrid()
+    {
+        Vector2Int randPos;
+        do
+        {
+            randPos = new Vector2Int(Random.Range(0, stageSizeX), Random.Range(0, stageSizeY));
+        } while (stageCells[randPos.x,randPos.y] != null);
+
+        return randPos;
+    }
+
     bool isInStage(Vector2Int position)
     {
         return position.x >= 0 && position.x < stageCells.GetLength(0) && position.y >= 0 && position.y < stageCells.GetLength(1);
@@ -128,5 +150,10 @@ public class Stage : MonoBehaviour
     {
         Vector2 pos = new Vector2((position.x - stageOriginPosition.x) / gridScale, (position.y - stageOriginPosition.y) / gridScale);
         return Vector2Int.FloorToInt(pos);
+    }
+
+    public Vector3 ConvertToWorldPosition(Vector2Int position)
+    {
+        return stageOriginPosition + (Vector3)((Vector2)position * gridScale) + new Vector3(gridScale / 2, gridScale / 2, 0);
     }
 }

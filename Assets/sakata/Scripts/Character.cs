@@ -39,6 +39,10 @@ public class Character : StageObject
             transform.position += (Vector3)(Vector2)currentDirection * defaultSpeed * Time.deltaTime;
         }
 
+        float clampX = Mathf.Clamp(transform.position.x, stage.ConvertToWorldPosition(new Vector2Int(0, 0)).x, stage.ConvertToWorldPosition(new Vector2Int(stage.stageSizeX - 1, 0)).x);
+        float clampY = Mathf.Clamp(transform.position.y, stage.ConvertToWorldPosition(new Vector2Int(0, 0)).y, stage.ConvertToWorldPosition(new Vector2Int(0, stage.stageSizeY - 1)).y);
+        transform.position = new Vector3(clampX, clampY);
+
         var gridPos = stage.ConvertToGrid(transform.position);
         stage.characterPoint = gridPos;
 
