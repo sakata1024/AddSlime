@@ -16,7 +16,9 @@ public class StageFactory : MonoBehaviour
         {
             for (var y = 0; y < stageSizeY; y++)
             {
-                Instantiate(iceBlock, new Vector3(x - stageSizeX / 2, y - stageSizeY / 2, 0), Quaternion.identity, transform);
+                var instance = Instantiate(iceBlock,transform);
+                instance.transform.localPosition = new Vector3(x - stageSizeX / 2, y - stageSizeY / 2, 0);
+                instance.transform.localRotation = Quaternion.identity;
             }
         }
     }
