@@ -26,13 +26,22 @@ public class Stage : MonoBehaviour
         stageCells[2, 2] = debugSlime;
         debugSlime.position = new Vector2Int(2, 2);
         debugSlime.stage = this;
-        stageCells[3, 3] = debugSlime2;
-        debugSlime2.position = new Vector2Int(3, 3);
-        debugSlime2.stage = this;
-        stageCells[1, 4] = debugSlime3;
-        debugSlime3.position = new Vector2Int(1, 4);
-        debugSlime3.stage = this;
-        stageCells[0, 2] = debugWall;
+        if(debugSlime2 != null)
+        {
+            stageCells[3, 3] = debugSlime2;
+            debugSlime2.position = new Vector2Int(3, 3);
+            debugSlime2.stage = this;
+        }
+        if(debugSlime3 != null)
+        {
+            stageCells[1, 4] = debugSlime3;
+            debugSlime3.position = new Vector2Int(1, 4);
+            debugSlime3.stage = this;
+        }
+        if (debugWall != null)
+        {
+            stageCells[0, 2] = debugWall;
+        }
     }
 
     public void Attack(Vector2Int direction)
