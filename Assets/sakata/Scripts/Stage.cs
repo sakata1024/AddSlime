@@ -11,7 +11,7 @@ public class Stage : MonoBehaviour
     public Character character;
     public Vector2Int characterPoint;
     public Slime debugSlime;
-    public Vector3 stageOriginPosition = new Vector3(-2f, -2f);
+    public Vector3 stageOriginPosition = new Vector3(-2.5f, -2.5f);
     public float gridScale = 1f;
 
     // Start is called before the first frame update
@@ -48,7 +48,7 @@ public class Stage : MonoBehaviour
                 }
                 else
                 {
-                    targetSlime.MoveTo(stageOriginPosition + (Vector3)((Vector2)finishPosition * gridScale));
+                    targetSlime.MoveTo(stageOriginPosition + (Vector3)((Vector2)finishPosition * gridScale) + new Vector3(gridScale / 2, gridScale / 2, 0));
                     stageCells[finishPosition.x, finishPosition.y] = targetSlime;
                     stageCells[attackPosition.x, attackPosition.y] = null;
                 }
@@ -68,7 +68,7 @@ public class Stage : MonoBehaviour
 
     public Vector2Int ConvertToGrid(Vector3 position)
     {
-        Vector2 pos = new Vector2((position.x - stageOriginPosition.x) / gridScale, (position.y - stageOriginPosition.y) / gridScale);
+        Vector2 pos = new Vector2((position.x - stageOriginPosition.x - gridScale / 2) / gridScale, (position.y - stageOriginPosition.y - gridScale / 2) / gridScale);
         return Vector2Int.CeilToInt(pos);
     }
 }

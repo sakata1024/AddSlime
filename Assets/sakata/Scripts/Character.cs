@@ -65,7 +65,7 @@ public class Character : StageObject
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            stage.Attack(direction);
+            stage?.Attack(direction);
         }
     }
 }
