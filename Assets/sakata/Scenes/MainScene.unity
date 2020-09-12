@@ -374,7 +374,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 445685420488817785, guid: b24f29d100e171449ba797ce84f4f12a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b24f29d100e171449ba797ce84f4f12a, type: 3}
 --- !u!1001 &8640641061663784656
 PrefabInstance:
