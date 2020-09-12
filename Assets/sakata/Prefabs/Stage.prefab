@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7833843044440859386}
   - component: {fileID: 7833843044440859384}
   - component: {fileID: 1645045222102094240}
-  - component: {fileID: 445685420488817785}
   m_Layer: 0
   m_Name: Stage
   m_TagString: Untagged
@@ -101,6 +100,9 @@ MonoBehaviour:
   character: {fileID: 0}
   characterPoint: {x: 4, y: 4}
   debugSlime: {fileID: 0}
+  debugSlime2: {fileID: 0}
+  debugSlime3: {fileID: 0}
+  debugWall: {fileID: 0}
   stageOriginPosition: {x: -2.5, y: -2.5, z: 0}
   gridScale: 1
 --- !u!114 &1645045222102094240
@@ -119,22 +121,3 @@ MonoBehaviour:
   stageSizeX: 0
   stageSizeY: 0
   iceBlock: {fileID: 0}
---- !u!114 &445685420488817785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7833843044440859389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa91627d957f464687b318a6ab15fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageSizeX: 0
-  stageSizeY: 0
-  character: {fileID: 0}
-  characterPoint: {x: 0, y: 0}
-  debugSlime: {fileID: 0}
-  stageOriginPosition: {x: -2.5, y: -2.5, z: 0}
-  gridScale: 1

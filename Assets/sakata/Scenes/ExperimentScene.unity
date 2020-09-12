@@ -834,17 +834,17 @@ PrefabInstance:
     - target: {fileID: 7833843044440859387, guid: b24f29d100e171449ba797ce84f4f12a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.011
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833843044440859387, guid: b24f29d100e171449ba797ce84f4f12a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.023
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833843044440859387, guid: b24f29d100e171449ba797ce84f4f12a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7833843044440859387, guid: b24f29d100e171449ba797ce84f4f12a,
         type: 3}
@@ -891,7 +891,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 445685420488817785, guid: b24f29d100e171449ba797ce84f4f12a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b24f29d100e171449ba797ce84f4f12a, type: 3}
 --- !u!1 &1563452021
 GameObject:
