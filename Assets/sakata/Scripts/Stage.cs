@@ -11,13 +11,14 @@ public class Stage : MonoBehaviour
     public Character character;
     public Vector2Int characterPoint;
     public Slime debugSlime;
-    public Vector3 stageOriginPosition = new Vector3(-2.5f, -2.5f);
+    public Vector3 stageOriginPosition;
     public float gridScale = 1f;
     public InitialStageData stageData;
 
     // Start is called before the first frame update
     void Start()
     {
+        stageOriginPosition = new Vector2(-stageSizeX / 2.0f * gridScale, -stageSizeY / 2.0f * gridScale);
         stageCells = new StageObject[stageSizeX,stageSizeY];
         if(stageData != null)
         {
@@ -38,15 +39,19 @@ public class Stage : MonoBehaviour
         foreach (var stageObjectData in stageData.stageObjectList)
         {
             var instance = Instantiate(stageObjectData.stageObject, ConvertToWorldPosition(stageObjectData.position), Quaternion.identity);
-            stageCells[stageObjectData.position.x, stageObjectData.position.y] = instance;
             instance.stage = this;
             if(instance is Slime)
             {
                 ((Slime)instance).number = stageObjectData.initialSlimeNum;
             }
-            else if(instance is Character)
+
+            if(instance is Character)
             {
                 characterPoint = stageObjectData.position;
+            }
+            else
+            {
+                stageCells[stageObjectData.position.x, stageObjectData.position.y] = instance;
             }
         }
     }
@@ -54,6 +59,7 @@ public class Stage : MonoBehaviour
     public void PutSlime(Slime slime, int x, int y)
     {
         stageCells[x, y] = slime;
+        slime.stage = this;
     }
 
     public void Attack(Vector2Int direction)
@@ -112,6 +118,7 @@ public class Stage : MonoBehaviour
     public void Bomb(Slime bombSlime)
     {
         var bombPos = ConvertToGrid(bombSlime.transform.position);
+        int totalAddScore = 0;
 
         for(int y = -1; y <= 1; y++)
         {
@@ -124,21 +131,36 @@ public class Stage : MonoBehaviour
                 }
                 if(stageCells[massPos.x, massPos.y] is Slime)
                 {
+                    totalAddScore += ((Slime)stageCells[massPos.x, massPos.y]).number;
                     ((Slime)stageCells[massPos.x, massPos.y]).Bomb();
                 }
             }
         }
+        GameManager.Instance.AddScore(totalAddScore);
     }
 
     public Vector2Int GetRandomGrid()
     {
-        Vector2Int randPos;
-        do
-        {
-            randPos = new Vector2Int(Random.Range(0, stageSizeX), Random.Range(0, stageSizeY));
-        } while (stageCells[randPos.x,randPos.y] != null);
+        List<Vector2Int> posList = new List<Vector2Int>();
 
-        return randPos;
+        for(int y = 0; y < stageSizeY; y++)
+        {
+            for(int x = 0; x < stageSizeX; x++)
+            {
+                if(stageCells[x,y] == null)
+                {
+                    posList.Add(new Vector2Int(x, y));
+                }
+            }
+        }
+        if(posList.Count != 0)
+        {
+            return posList[Random.Range(0, posList.Count)];
+        }
+        else
+        {
+            return new Vector2Int(-1, -1);
+        }
     }
 
     bool isInStage(Vector2Int position)
