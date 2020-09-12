@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7833843044440859387}
   - component: {fileID: 7833843044440859386}
   - component: {fileID: 7833843044440859384}
+  - component: {fileID: 1645045222102094240}
+  - component: {fileID: 445685420488817785}
   m_Layer: 0
   m_Name: Stage
   m_TagString: Untagged
@@ -26,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7833843044440859389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.011, y: 0.023, z: 10}
-  m_LocalScale: {x: 31.076962, y: 31.8172, z: 1}
+  m_LocalPosition: {x: -1.37, y: 0.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d582a8c76d39fd44ebc0dcab248e8b16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,6 +100,41 @@ MonoBehaviour:
   stageSizeY: 5
   character: {fileID: 0}
   characterPoint: {x: 4, y: 4}
+  debugSlime: {fileID: 0}
+  stageOriginPosition: {x: -2.5, y: -2.5, z: 0}
+  gridScale: 1
+--- !u!114 &1645045222102094240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833843044440859389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435868ad66e904ba9a5ade5863c7e30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: {fileID: 0}
+  stageSizeX: 0
+  stageSizeY: 0
+  iceBlock: {fileID: 0}
+--- !u!114 &445685420488817785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833843044440859389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa91627d957f464687b318a6ab15fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageSizeX: 0
+  stageSizeY: 0
+  character: {fileID: 0}
+  characterPoint: {x: 0, y: 0}
   debugSlime: {fileID: 0}
   stageOriginPosition: {x: -2.5, y: -2.5, z: 0}
   gridScale: 1
