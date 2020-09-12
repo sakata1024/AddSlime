@@ -117,7 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435868ad66e904ba9a5ade5863c7e30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: {fileID: 0}
-  stageSizeX: 0
-  stageSizeY: 0
-  iceBlock: {fileID: 0}
+  stage: {fileID: 7833843044440859384}
+  stageSizeX: 5
+  stageSizeY: 5
+  iceBlock: {fileID: 1293453333070126957, guid: 974174982899645879a91061df6c58ca,
+    type: 3}
