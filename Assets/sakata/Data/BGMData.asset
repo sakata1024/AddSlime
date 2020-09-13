@@ -14,8 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundList:
   - name: SlimeMove
-    clip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
-    volume: 1
-  - name: SlimeMove
-    clip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+    clip: {fileID: 8300000, guid: 3edf939c16f044024b1d10687ca20eed, type: 3}
     volume: 1
