@@ -124,3 +124,5 @@ MonoBehaviour:
   stage: {fileID: 0}
   number: 0
   position: {x: 0, y: 0}
+  particle: {fileID: 8221013964188321494, guid: 711eaf6a1ec2b448ea9b2813b0a2e4c7,
+    type: 3}
