@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public Stage stage;
     public StageFactory stageFactory;
     public SlimeFactory slimeFactory;
-    public StageLevelData stageLevelData;
+    public static StageLevelData stageLevelData;
+
+    public float finishTime = 10f;
 
     int score;
     float timerCount = 0f;
     bool isGameStarted = false;
+    string gameFinishMessage;
 
     static GameManager _instance;
     public static GameManager Instance
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
             stageFactory.stageSizeX = stageLevelData.stageSize.x;
             stageFactory.stageSizeY = stageLevelData.stageSize.y;
             slimeFactory.fallSlimeRate = stageLevelData.slimeCreateTiming;
+            finishTime = stageLevelData.gameTimeSeconds;
         }
         
     }
@@ -42,14 +47,21 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         score = 0;
+        GameStart();
     }
 
     void Update()
     {
-        if (isGameStarted)
+        if (!isGameStarted) return;
+
+        timerCount += Time.deltaTime;
+
+        if (timerCount >= finishTime)
         {
-            timerCount += Time.deltaTime;
+            timerCount = finishTime;
+            TimeOver();
         }
+
     }
 
     public int GetScore()
@@ -64,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     public float GetTime()
     {
-        return timerCount;
+        return finishTime - timerCount;
     }
 
     public void GameStart()
@@ -72,9 +84,31 @@ public class GameManager : MonoBehaviour
         isGameStarted = true;
     }
 
+    public void GameFinish()
+    {
+        SceneManager.LoadScene("ResultScene");
+
+        void SetResult(Scene next, LoadSceneMode mode)
+        {
+            GameObject.Find("ResultLoader")?.GetComponent<ResultLoader>().SetResult(gameFinishMessage, score);
+            SceneManager.sceneLoaded -= SetResult;
+        }
+
+        SceneManager.sceneLoaded += SetResult;
+    }
+
+    public void TimeOver()
+    {
+        isGameStarted = false;
+        gameFinishMessage = "Game Finish!";
+        GameFinish();
+    }
+
     public void GameOver()
     {
         isGameStarted = false;
+        gameFinishMessage = "Game Over...";
+        GameFinish();
     }
 
 }

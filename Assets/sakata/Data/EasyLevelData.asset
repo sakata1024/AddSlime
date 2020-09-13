@@ -15,3 +15,4 @@ MonoBehaviour:
   stageSize: {x: 5, y: 5}
   stageObjectData: {fileID: 11400000, guid: b1d6a86828f2f3b499431377dc61f1c9, type: 2}
   slimeCreateTiming: 5
+  gameTimeSeconds: 10

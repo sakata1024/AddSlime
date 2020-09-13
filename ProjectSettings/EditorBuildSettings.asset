@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Uno/start.unity
+    guid: 7b7c5f054e13743ceb07dbc581f2561d
+  - enabled: 1
+    path: Assets/sakata/Scenes/MainScene.unity
+    guid: 5b74caecb7eb5a34bb74203ed0d5fd01
+  - enabled: 1
+    path: Assets/matsui/ResultScene.unity
+    guid: 15d05102348fa4aaabfcb037e60c33cd
   m_configObjects: {}

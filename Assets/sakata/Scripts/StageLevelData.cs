@@ -8,4 +8,5 @@ public class StageLevelData : ScriptableObject
     public Vector2Int stageSize;
     public InitialStageData stageObjectData;
     public float slimeCreateTiming;
+    public float gameTimeSeconds;
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Stage : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class Stage : MonoBehaviour
 
     void CreateStageObject()
     {
+        foreach(var stageObject in FindObjectsOfType<StageObject>())
+        {
+            Destroy(stageObject.gameObject);
+        }
+
         foreach (var stageObjectData in stageData.stageObjectList)
         {
             var instance = Instantiate(stageObjectData.stageObject, ConvertToWorldPosition(stageObjectData.position), Quaternion.identity);
