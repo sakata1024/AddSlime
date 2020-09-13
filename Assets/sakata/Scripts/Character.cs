@@ -8,7 +8,7 @@ public class Character : StageObject
     public float defaultSpeed = 1f;
 
     public Vector2Int direction = Vector2Int.right;
-    //宇野がパンチするために時間のカウントをおきました。
+    // 宇野がパンチするために時間のカウントをおきました。
     private float cnt;
 
     private bool isMoving = false;
@@ -30,6 +30,7 @@ public class Character : StageObject
         DOVirtual.DelayedCall(
             transtime,
             () => {
+                transform.position = position;
                 isMoving = false;
             }
         );
@@ -79,24 +80,6 @@ public class Character : StageObject
             return;
         }
 
-        Vector2 newPosition = transform.position + (Vector3)(Vector2)currentDirection * defaultSpeed;
-        float clampX = Mathf.Clamp(newPosition.x, stage.ConvertToWorldPosition(new Vector2Int(0, 0)).x, stage.ConvertToWorldPosition(new Vector2Int(stage.stageSizeX - 1, 0)).x);
-        float clampY = Mathf.Clamp(newPosition.y, stage.ConvertToWorldPosition(new Vector2Int(0, 0)).y, stage.ConvertToWorldPosition(new Vector2Int(0, stage.stageSizeY - 1)).y);
-        newPosition = new Vector2((int)Mathf.Round(clampX), (int)Mathf.Round(clampY));
-        var gridPos = stage.ConvertToGrid(newPosition);
-        
-        if (stage.stageCells[gridPos.x, gridPos.y] is Wall)
-        {
-            return;
-        }
-        if (stage.stageCells[gridPos.x, gridPos.y] is Slime)
-        {
-            return;
-        }
-
-        moveTo(newPosition);
-        stage.characterPoint = gridPos;
-
         if (direction != currentDirection)
         {
             direction = currentDirection;
@@ -117,5 +100,23 @@ public class Character : StageObject
                 transform.localRotation = Quaternion.Euler(0, 0, 270f);
             }
         }
+
+        Vector2 newPosition = transform.position + (Vector3)(Vector2)currentDirection * defaultSpeed;
+        float clampX = Mathf.Clamp(newPosition.x, stage.ConvertToWorldPosition(new Vector2Int(0, 0)).x, stage.ConvertToWorldPosition(new Vector2Int(stage.stageSizeX - 1, 0)).x);
+        float clampY = Mathf.Clamp(newPosition.y, stage.ConvertToWorldPosition(new Vector2Int(0, 0)).y, stage.ConvertToWorldPosition(new Vector2Int(0, stage.stageSizeY - 1)).y);
+        newPosition = new Vector2((int)clampX, (int)clampY);
+        var gridPos = stage.ConvertToGrid(newPosition);
+      
+        if (stage.stageCells[gridPos.x, gridPos.y] is Wall)
+        {
+            return;
+        }
+        if (stage.stageCells[gridPos.x, gridPos.y] is Slime)
+        {
+            return;
+        }
+
+        moveTo(newPosition);
+        stage.characterPoint = gridPos;
     }
 }
