@@ -15,6 +15,7 @@ public class Stage : MonoBehaviour
     public Vector3 stageOriginPosition;
     public float gridScale = 1f;
     public InitialStageData stageData;
+    public GameObject markerPrefab;
 
     // Start is called before the first frame update
     void Start()

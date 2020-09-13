@@ -797,6 +797,11 @@ PrefabInstance:
       propertyPath: slimeFactory
       value: 
       objectReference: {fileID: 1001364597}
+    - target: {fileID: 5994816946069223046, guid: 1c194293d04f08241bd1b21bd153f29e,
+        type: 3}
+      propertyPath: finishTime
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 5994816946069223047, guid: 1c194293d04f08241bd1b21bd153f29e,
         type: 3}
       propertyPath: m_Name
