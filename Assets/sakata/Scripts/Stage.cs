@@ -221,4 +221,29 @@ public class Stage : MonoBehaviour
     {
         return stageOriginPosition + (Vector3)((Vector2)position * gridScale) + new Vector3(gridScale / 2, gridScale / 2, 0);
     }
+
+    [ContextMenu("DebugGrid")]
+    public void DebugGrid()
+    {
+        string debugStr = "";
+        for(int y = 0; y < stageSizeY; y++)
+        {
+            for(int x = 0; x < stageSizeX; x++)
+            {
+                if(stageCells[x,y] is Slime)
+                {
+                    debugStr += "Slime, ";
+                }else if(stageCells[x,y] is Wall)
+                {
+                    debugStr += "Wall, ";
+                }else if(stageCells[x,y] == null)
+                {
+                    debugStr += "Null, ";
+                }
+            }
+            debugStr += "\n";
+        }
+
+        Debug.Log(debugStr);
+    }
 }

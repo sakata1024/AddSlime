@@ -24,6 +24,11 @@ public class ResultLoader : MonoBehaviour
         SceneManager.LoadScene("start");
     }
 
+    public void ShowRanking()
+    {
+        naichilab.RankingLoader.Instance.SendScoreAndShowRanking(score);
+    }
+
     public void SetResult(string msg, int score)
     {
         result = msg;

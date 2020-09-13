@@ -18,11 +18,11 @@ MonoBehaviour:
     initialSlimeNum: 0
   - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
       type: 3}
-    position: {x: 1, y: 4}
+    position: {x: 1, y: 6}
     initialSlimeNum: 4
   - stageObject: {fileID: 8845279925303635724, guid: 3e2b52ca9790b48439194c49df0cd77e,
       type: 3}
-    position: {x: 1, y: 1}
+    position: {x: 1, y: 2}
     initialSlimeNum: 0
   - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
       type: 3}
@@ -30,21 +30,21 @@ MonoBehaviour:
     initialSlimeNum: 6
   - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
       type: 3}
-    position: {x: 3, y: 4}
+    position: {x: 2, y: 4}
     initialSlimeNum: 6
   - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
       type: 3}
-    position: {x: 3, y: 2}
+    position: {x: 3, y: 5}
     initialSlimeNum: 5
   - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
       type: 3}
-    position: {x: 3, y: 0}
+    position: {x: 4, y: 0}
     initialSlimeNum: 1
   - stageObject: {fileID: 8845279925303635724, guid: 3e2b52ca9790b48439194c49df0cd77e,
       type: 3}
-    position: {x: 4, y: 3}
+    position: {x: 5, y: 4}
     initialSlimeNum: 0
   - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
       type: 3}
-    position: {x: 4, y: 1}
+    position: {x: 6, y: 2}
     initialSlimeNum: 9

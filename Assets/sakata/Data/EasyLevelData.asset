@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c363e68c9b7d34c950796385e9016a, type: 3}
   m_Name: EasyLevelData
   m_EditorClassIdentifier: 
-  stageSize: {x: 5, y: 5}
+  stageSize: {x: 7, y: 7}
   stageObjectData: {fileID: 11400000, guid: b1d6a86828f2f3b499431377dc61f1c9, type: 2}
-  slimeCreateTiming: 5
-  gameTimeSeconds: 10
+  slimeCreateTiming: 4
+  gameTimeSeconds: 120
