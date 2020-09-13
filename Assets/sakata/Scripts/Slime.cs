@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Slime : StageObject
 {
     public int number;
     public Vector2Int position;
 
+    public ParticleSystem particle;
     //動かせるかどうか(数字による)
     public bool canMove
     {
@@ -31,7 +33,9 @@ public class Slime : StageObject
     // positionへ移動
     public void MoveTo(Vector2 position)
     {
-        transform.position = position;
+        //速度を一定(0.5f/s)にするために、移動時間に距離をかけてます。
+        var difvec = new Vector2(transform.position.x, this.transform.position.y) - position;
+        transform.DOMove(position, 0.5f * difvec.magnitude);
     }
 
     // addSlimeにぶつかるまで移動する
@@ -62,6 +66,8 @@ public class Slime : StageObject
     // 爆発する処理
     public void Bomb()
     {
-        Destroy(gameObject);
+        ParticleSystem expl = Instantiate(particle, transform.position, transform.rotation) as ParticleSystem;
+        expl.Play();
+        Destroy(gameObject);//, expl.duration);
     }
 }
