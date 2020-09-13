@@ -41,11 +41,18 @@ public class Slime : StageObject
     // addSlimeにぶつかるまで移動する
     public void UnionTo(Vector2 position, Slime addSlime)
     {
-        transform.position = position;
+        var difvec = new Vector2(transform.position.x, this.transform.position.y) - position;
+        var transtime = 0.5f * difvec.magnitude;
+        transform.DOMove(position, transtime);
 
         //以下はぶつかったあとの処理
-        addSlime.Add(number);
-        Destroy(gameObject);
+        DOVirtual.DelayedCall(
+            transtime,   // 遅延させる（待機する）時間
+            () => {
+                addSlime.Add(number);
+                Destroy(gameObject);
+            }
+        );
     }
 
     // 数字が足される
