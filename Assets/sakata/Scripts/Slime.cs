@@ -80,6 +80,7 @@ public class Slime : StageObject
     {
         ParticleSystem expl = Instantiate(particle, transform.position, transform.rotation) as ParticleSystem;
         expl.Play();
-        Destroy(gameObject);//, expl.duration);
+        Destroy(gameObject, 0.5f);
+        Destroy(expl.gameObject, 0.5f);
     }
 }
