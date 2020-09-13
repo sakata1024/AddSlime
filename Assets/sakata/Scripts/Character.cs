@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Character : StageObject
 {
     public float defaultSpeed = 1f;
 
     public Vector2Int direction = Vector2Int.right;
+    //宇野がパンチするために時間のカウントをおきました。
+    private float cnt;
 
     // Start is called before the first frame update
     void Start()
@@ -66,9 +69,12 @@ public class Character : StageObject
                 transform.localRotation = Quaternion.Euler(0, 0, 270f);
             }
         }
+        cnt += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && cnt >0.4f)
         {
+            cnt = 0;
+            transform.DOPunchScale(new Vector3(0.3f, 0.3f),0.3f);
             stage?.Attack(direction);
         }
     }
