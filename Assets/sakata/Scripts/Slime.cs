@@ -21,7 +21,11 @@ public class Slime : StageObject
     // Start is called before the first frame update
     void Start()
     {
-        
+        //登場時にぷよぷよします
+        transform.DOPunchScale(
+    new Vector3(0.3f, 0.3f),    // scale1.5倍指定
+    0.3f                        // アニメーション時間
+);
     }
 
     // Update is called once per frame
@@ -59,12 +63,13 @@ public class Slime : StageObject
     public void Add(int addNum)
     {
         number += addNum;
-        if(number == 10)
+        transform.DOShakeScale(0.5f);
+        if (number == 10)
         {
             // ここでほかのスライムに爆発処理がかかる
             stage.Bomb(this);
         }
-        else if(number > 11)
+        else if(number > 10)
         {
             gameObject.GetComponent<SpriteRenderer>().material.color = Color.black;
         }

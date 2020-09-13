@@ -5,13 +5,13 @@ using UnityEngine;
 public class StageFactory : MonoBehaviour
 {
     public Stage stage;
-    public int stageSizeX;
-    public int stageSizeY;
     public GameObject iceBlock;
 
     // Start is called before the first frame update
     void Start()
     {
+        int stageSizeX = stage.stageSizeX;
+        int stageSizeY = stage.stageSizeY;
         for (var x = 0; x < stageSizeX; x++)
         {
             for (var y = 0; y < stageSizeY; y++)

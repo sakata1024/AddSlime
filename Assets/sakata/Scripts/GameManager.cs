@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
             stage.stageSizeX = stageLevelData.stageSize.x;
             stage.stageSizeY = stageLevelData.stageSize.y;
             stage.stageData = stageLevelData.stageObjectData;
-            stageFactory.stageSizeX = stageLevelData.stageSize.x;
-            stageFactory.stageSizeY = stageLevelData.stageSize.y;
             slimeFactory.fallSlimeRate = stageLevelData.slimeCreateTiming;
             finishTime = stageLevelData.gameTimeSeconds;
         }
