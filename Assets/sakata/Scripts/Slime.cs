@@ -26,6 +26,7 @@ public class Slime : StageObject
     new Vector3(0.3f, 0.3f),    // scale1.5倍指定
     0.3f                        // アニメーション時間
 );
+        SoundPlayer.Instance.PlaySE("Slime");
     }
 
     // Update is called once per frame
@@ -55,6 +56,7 @@ public class Slime : StageObject
             () => {
                 addSlime.Add(number);
                 Destroy(gameObject);
+                SoundPlayer.Instance.PlaySE("PluSlime");
             }
         );
     }
@@ -80,6 +82,7 @@ public class Slime : StageObject
     {
         ParticleSystem expl = Instantiate(particle, transform.position, transform.rotation) as ParticleSystem;
         expl.Play();
+        SoundPlayer.Instance.PlaySE("bomb");
         Destroy(gameObject, 0.5f);
         Destroy(expl.gameObject, 0.5f);
     }
