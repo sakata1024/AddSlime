@@ -98,14 +98,14 @@ public class GameManager : MonoBehaviour
     public void TimeOver()
     {
         isGameStarted = false;
-        gameFinishMessage = "Game Finish!";
+        gameFinishMessage = "GAME FINISH!";
         GameFinish();
     }
 
     public void GameOver()
     {
         isGameStarted = false;
-        gameFinishMessage = "Game Over...";
+        gameFinishMessage = "GAME OVER...";
         GameFinish();
     }
 
