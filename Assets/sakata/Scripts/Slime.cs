@@ -53,6 +53,10 @@ public class Slime : StageObject
             // ここでほかのスライムに爆発処理がかかる
             stage.Bomb(this);
         }
+        else if(number > 11)
+        {
+            gameObject.GetComponent<SpriteRenderer>().material.color = Color.black;
+        }
     }
 
     // 爆発する処理
