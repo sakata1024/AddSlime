@@ -16,6 +16,8 @@ public class Stage : MonoBehaviour
     public float gridScale = 1f;
     public InitialStageData stageData;
     public GameObject markerPrefab;
+    Slime targetSlime = null;
+    GameObject currentMarkerInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -50,10 +52,12 @@ public class Stage : MonoBehaviour
             if(instance is Slime)
             {
                 ((Slime)instance).number = stageObjectData.initialSlimeNum;
+                ((Slime)instance).position = stageObjectData.position;
             }
 
             if(instance is Character)
             {
+                character = (Character)instance;
                 characterPoint = stageObjectData.position;
             }
             else
@@ -67,6 +71,31 @@ public class Stage : MonoBehaviour
     {
         stageCells[x, y] = slime;
         slime.stage = this;
+        slime.position = new Vector2Int(x, y);
+    }
+
+    private void Update()
+    {
+        Vector2Int willAttackPosition = characterPoint + character.direction;
+        if (isInStage(willAttackPosition))
+        {
+            if (stageCells[willAttackPosition.x, willAttackPosition.y] is Slime && ((Slime)stageCells[willAttackPosition.x, willAttackPosition.y]).canMove)
+            {
+                var willTargetSlime = (Slime)stageCells[willAttackPosition.x, willAttackPosition.y];
+                if (targetSlime == null || targetSlime.position != willTargetSlime.position)
+                {
+                    targetSlime = willTargetSlime;
+                    Destroy(currentMarkerInstance);
+                    currentMarkerInstance = Instantiate(markerPrefab, ConvertToWorldPosition(willAttackPosition), Quaternion.identity);
+                }
+            }
+            else
+            {
+                Destroy(currentMarkerInstance);
+                currentMarkerInstance = null;
+                targetSlime = null;
+            }
+        }
     }
 
     public void Attack(Vector2Int direction)
