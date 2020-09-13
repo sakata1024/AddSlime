@@ -47,3 +47,5 @@ MonoBehaviour:
   stage: {fileID: 0}
   slimePrefab: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
     type: 3}
+  warningPrefab: {fileID: 1973017220658407677, guid: 1c821568bda713849a75b95b74fcfa37,
+    type: 3}

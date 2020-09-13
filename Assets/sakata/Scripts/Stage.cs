@@ -74,9 +74,15 @@ public class Stage : MonoBehaviour
         slime.position = new Vector2Int(x, y);
     }
 
+    private Vector2Int oldWillAttackPos = Vector2Int.zero;
     private void Update()
     {
         Vector2Int willAttackPosition = characterPoint + character.direction;
+        if(oldWillAttackPos == willAttackPosition)
+        {
+            return;
+        }
+        oldWillAttackPos = willAttackPosition;
         if (isInStage(willAttackPosition))
         {
             if (stageCells[willAttackPosition.x, willAttackPosition.y] is Slime && ((Slime)stageCells[willAttackPosition.x, willAttackPosition.y]).canMove)
@@ -169,6 +175,7 @@ public class Stage : MonoBehaviour
                 {
                     totalAddScore += ((Slime)stageCells[massPos.x, massPos.y]).number;
                     ((Slime)stageCells[massPos.x, massPos.y]).Bomb();
+                    stageCells[massPos.x, massPos.y] = null;
                 }
             }
         }
