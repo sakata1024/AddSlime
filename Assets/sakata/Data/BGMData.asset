@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BGMData
   m_EditorClassIdentifier: 
   soundList:
-  - name: SlimeMove
+  - name: title
     clip: {fileID: 8300000, guid: 3edf939c16f044024b1d10687ca20eed, type: 3}
-    volume: 1
+    volume: 0.064
