@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93133828863592f4ea22f0435e174df5, type: 3}
+  m_Name: HardStageData
+  m_EditorClassIdentifier: 
+  stageObjectList:
+  - stageObject: {fileID: 356653923, guid: 0763212da19a74511927de5103f5871b, type: 3}
+    position: {x: 3, y: 3}
+    initialSlimeNum: 0
+  - stageObject: {fileID: 8845279925303635724, guid: 3e2b52ca9790b48439194c49df0cd77e,
+      type: 3}
+    position: {x: 0, y: 0}
+    initialSlimeNum: 0
+  - stageObject: {fileID: 8845279925303635724, guid: 3e2b52ca9790b48439194c49df0cd77e,
+      type: 3}
+    position: {x: 0, y: 6}
+    initialSlimeNum: 0
+  - stageObject: {fileID: 8845279925303635724, guid: 3e2b52ca9790b48439194c49df0cd77e,
+      type: 3}
+    position: {x: 2, y: 4}
+    initialSlimeNum: 0
+  - stageObject: {fileID: 8845279925303635724, guid: 3e2b52ca9790b48439194c49df0cd77e,
+      type: 3}
+    position: {x: 3, y: 2}
+    initialSlimeNum: 0
+  - stageObject: {fileID: 8845279925303635724, guid: 3e2b52ca9790b48439194c49df0cd77e,
+      type: 3}
+    position: {x: 4, y: 5}
+    initialSlimeNum: 0
+  - stageObject: {fileID: 8845279925303635724, guid: 3e2b52ca9790b48439194c49df0cd77e,
+      type: 3}
+    position: {x: 5, y: 3}
+    initialSlimeNum: 0
+  - stageObject: {fileID: 8845279925303635724, guid: 3e2b52ca9790b48439194c49df0cd77e,
+      type: 3}
+    position: {x: 6, y: 0}
+    initialSlimeNum: 0
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 0, y: 1}
+    initialSlimeNum: 4
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 0, y: 4}
+    initialSlimeNum: 1
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 1, y: 1}
+    initialSlimeNum: 3
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 1, y: 3}
+    initialSlimeNum: 7
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 1, y: 6}
+    initialSlimeNum: 9
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 3, y: 0}
+    initialSlimeNum: 1
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 3, y: 4}
+    initialSlimeNum: 5
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 5, y: 1}
+    initialSlimeNum: 2
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 5, y: 5}
+    initialSlimeNum: 4
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 5, y: 6}
+    initialSlimeNum: 3
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 6, y: 2}
+    initialSlimeNum: 8
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 6, y: 5}
+    initialSlimeNum: 5
+  - stageObject: {fileID: 2680882830204838192, guid: 1c5e08a37e73f6447a0a362e5fb19ee2,
+      type: 3}
+    position: {x: 6, y: 6}
+    initialSlimeNum: 50

@@ -21,6 +21,7 @@ public class Slime : StageObject
     // Start is called before the first frame update
     void Start()
     {
+        if(!canMove) gameObject.GetComponent<SpriteRenderer>().material.color = Color.black;
         //登場時にぷよぷよします
         transform.DOPunchScale(
     new Vector3(0.3f, 0.3f),    // scale1.5倍指定

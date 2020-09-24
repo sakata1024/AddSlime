@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     float timerCount = 0f;
     bool isGameStarted = false;
     string gameFinishMessage;
+    int level = 0;
 
     static GameManager _instance;
     public static GameManager Instance
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
         if(stageLevelData != null)
         {
+            level = stageLevelData.level;
             stage.stageSizeX = stageLevelData.stageSize.x;
             stage.stageSizeY = stageLevelData.stageSize.y;
             stage.stageData = stageLevelData.stageObjectData;
@@ -88,7 +90,7 @@ public class GameManager : MonoBehaviour
 
         void SetResult(Scene next, LoadSceneMode mode)
         {
-            GameObject.Find("ResultLoader")?.GetComponent<ResultLoader>().SetResult(gameFinishMessage, score);
+            GameObject.Find("ResultLoader")?.GetComponent<ResultLoader>().SetResult(gameFinishMessage, score, level);
             SceneManager.sceneLoaded -= SetResult;
         }
 

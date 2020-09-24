@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a70574be0ea4044ac8d85c166124b3b1, type: 3}
-  m_Name: RankingInfo
+  m_Script: {fileID: 11500000, guid: 47c363e68c9b7d34c950796385e9016a, type: 3}
+  m_Name: NormalLevelData
   m_EditorClassIdentifier: 
-  BoardName: "\u30CF\u30A4\u30B9\u30B3\u30A2"
-  ClassName: HiScore
-  Type: 0
-  Order: 1
-  CustomFormat: 
+  level: 1
+  stageSize: {x: 7, y: 5}
+  stageObjectData: {fileID: 11400000, guid: b9dba3740bd5ec54e9fca544dcaa8391, type: 2}
+  slimeCreateTiming: 4
+  gameTimeSeconds: 120

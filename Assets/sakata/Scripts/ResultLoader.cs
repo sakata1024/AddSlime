@@ -11,6 +11,7 @@ public class ResultLoader : MonoBehaviour
 
     public string result;
     public int score;
+    public int level = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +27,13 @@ public class ResultLoader : MonoBehaviour
 
     public void ShowRanking()
     {
-        naichilab.RankingLoader.Instance.SendScoreAndShowRanking(score);
+        naichilab.RankingLoader.Instance.SendScoreAndShowRanking(score, level);
     }
 
-    public void SetResult(string msg, int score)
+    public void SetResult(string msg, int score, int level)
     {
         result = msg;
         this.score = score;
+        this.level = level;
     }
 }

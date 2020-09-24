@@ -1920,5 +1920,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   easyLevelData: {fileID: 11400000, guid: c63b1779840d5f643bad314a073b5cba, type: 2}
-  normalLevelData: {fileID: 11400000, guid: c63b1779840d5f643bad314a073b5cba, type: 2}
-  hardLevelData: {fileID: 11400000, guid: c63b1779840d5f643bad314a073b5cba, type: 2}
+  normalLevelData: {fileID: 11400000, guid: ae49391bb87038549b201acdeb6db0fe, type: 2}
+  hardLevelData: {fileID: 11400000, guid: 9bd55bcf62c6e7e429ba0906053ca93a, type: 2}
