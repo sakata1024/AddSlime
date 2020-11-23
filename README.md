@@ -12,6 +12,6 @@
 https://unityroom.com/games/pluslime
 
 ## Author
-[sakata1024](https://github.com/sakata1024)
-[Matts966](https://github.com/Matts966)
-[宇野　拓磨](https://github.com/kuwaota)
+[sakata1024](https://github.com/sakata1024) <br>
+[Matts966](https://github.com/Matts966) <br>
+[宇野 拓磨](https://github.com/kuwaota)
